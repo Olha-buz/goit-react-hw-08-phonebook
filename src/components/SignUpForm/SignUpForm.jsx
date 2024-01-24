@@ -1,50 +1,52 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { logInThunk } from "store/auth/thunksAuth";
-import { selectError } from "store/contacts/selectorsContacts";
+import { signUpThunk } from "store/auth/thunksAuth";
 
-export const LoginForm = () => {
+export const SignupForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const error = useSelector(selectError);
-    
     const handleSubmit = evt => {
-        evt.prevenrDefault();
+        evt.preventDefault();
         const form = evt.currentTarget;
-        dispatch(logInThunk({
+        dispatch(signUpThunk({
+            name: form.elements.name.value,
             email: form.elements.email.value,
             password: form.elements.password.value,
         }))
         form.reset();
-        if (error === null) { navigate('/contacts') };
+        navigate('/contacts');
     };
 
     return (
         <div>
-            LogIn Form
-            <form onSubmit={handleSubmit} autoComplete='off'>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Name
+                    <input
+                        type='text'
+                        name='name'
+                        placeholder='Enter your name'
+                    /> 
+                </label> 
                 <label>
                     Email
                     <input
                         type='email'
                         name='email'
-                        placeholder='Enter email'
+                        placeholder='Enter your email'
                     />
                 </label>
                 <label>
-                    Password
+                    Password 
                     <input
                         type='password'
                         name='password'
-                        placeholder='Enter password'
+                        placeholder='Enter your password'
                     />
                 </label>
-                <button type='submit'>
-                    Log In
-                </button>
+                <button type='submit'>Sign Up</button>
             </form>
         </div>
-       
     )
-};
+}
