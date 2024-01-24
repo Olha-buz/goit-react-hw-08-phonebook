@@ -1,5 +1,6 @@
-const { createSlice } = require("@reduxjs/toolkit");
-const { signUpThunk, logInThunk, logOutThunk } = require("./thunksAuth");
+import { createSlice } from "@reduxjs/toolkit";
+import { logInThunk, logOutThunk, signUpThunk } from "./thunksAuth";
+
 
 const initialState = {
     token: '',

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import css from './App.module.css';
-import { Layout } from 'pages/Layout';
+import { Layout } from 'pages/Layout/Layout';
 import { Login } from 'pages/LoginPage';
 import { Home } from 'pages/HomePage';
 import { PrivateRoute, RestrictedRoute } from "./guards";

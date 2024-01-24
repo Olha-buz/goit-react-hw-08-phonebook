@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { signUpThunk } from "store/auth/thunksAuth";
+import css from './SignupForm.module.css';
 
 export const SignupForm = () => {
     const dispatch = useDispatch();
@@ -19,33 +20,36 @@ export const SignupForm = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name
+        <div className={css.divSignup}>
+            <form className={css.signupForm} onSubmit={handleSubmit}>
+                <label className={css.signupLabel}>
+                    <p className={css.signupP} >Name</p>
                     <input
+                        className={css.signupInput}
                         type='text'
                         name='name'
                         placeholder='Enter your name'
                     /> 
-                </label> 
-                <label>
-                    Email
+                </label > 
+                <label className={css.signupLabel}>
+                    <p className={css.signupP} >Email</p>
                     <input
+                        className={css.signupInput}
                         type='email'
                         name='email'
                         placeholder='Enter your email'
                     />
                 </label>
-                <label>
-                    Password 
+                <label className={css.signupLabel}>
+                    <p className={css.signupP} >Password </p>
                     <input
+                        className={css.signupInput}
                         type='password'
                         name='password'
                         placeholder='Enter your password'
                     />
                 </label>
-                <button type='submit'>Sign Up</button>
+                <button className={css.signupButton} type='submit'>Sign Up</button>
             </form>
         </div>
     )

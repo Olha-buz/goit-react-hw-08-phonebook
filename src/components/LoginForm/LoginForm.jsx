@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { logInThunk } from "store/auth/thunksAuth";
 import { selectError } from "store/contacts/selectorsContacts";
+import css from './LoginForm.module.css';
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
@@ -21,26 +22,28 @@ export const LoginForm = () => {
     };
 
     return (
-        <div>
-            LogIn Form
-            <form onSubmit={handleSubmit} autoComplete='off'>
-                <label>
-                    Email
+        <div className={css.divLogin}>
+            <h2 className={css.loginTitle}>Log In</h2>
+            <form className={ css.loginForm} onSubmit={handleSubmit} autoComplete='off'>
+                <label className={css.loginLabel}>
+                    <p className={css.loginP}> Email</p>
                     <input
+                        className={css.loginInput}
                         type='email'
                         name='email'
                         placeholder='Enter email'
                     />
                 </label>
-                <label>
-                    Password
+                <label className={css.loginLabel}>
+                    <p className={css.loginP}>Password</p>
                     <input
+                        className={css.loginInput}
                         type='password'
                         name='password'
                         placeholder='Enter password'
                     />
                 </label>
-                <button type='submit'>
+                <button className={css.loginButton} type='submit'>
                     Log In
                 </button>
             </form>
