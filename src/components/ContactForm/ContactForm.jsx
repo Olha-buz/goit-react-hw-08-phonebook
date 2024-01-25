@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { selectContacts } from 'store/contacts/selectorsContacts';
-import { addContactThunk } from 'store/contacts/thunkContact';
+import { addContactThunk } from 'store/contacts/operationsContact';
 
 export const ContactForm = () => {
     const [name, setName] = useState('');

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { signUpThunk } from "store/auth/thunksAuth";
+import { signUpThunk } from "store/auth/operationsAuth";
 import css from './SignupForm.module.css';
 
 export const SignupForm = () => {
@@ -21,6 +21,7 @@ export const SignupForm = () => {
 
     return (
         <div className={css.divSignup}>
+            <h2>Sign Up</h2>
             <form className={css.signupForm} onSubmit={handleSubmit}>
                 <label className={css.signupLabel}>
                     <p className={css.signupP} >Name</p>

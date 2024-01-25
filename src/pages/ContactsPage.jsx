@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { selectToken } from "store/auth/selectorsAuth";
 import { selectError, selectLoading } from "store/contacts/selectorsContacts";
-import { fetchContactsThunk } from "store/contacts/thunkContact";
+import { fetchContactsThunk } from "store/contacts/operationsContact";
 
 export const Contacts = () => {
     const dispatch = useDispatch();
@@ -21,9 +21,9 @@ export const Contacts = () => {
 
     return (
         <div>
-            <title>Phonebook</title>
+            <h2>Phonebook</h2>
             {isLoading && <Loader />}
-            {error && <p>Please log in to use the service</p>}
+            {error && <p>Something wrong...</p>}
             <ContactForm />
             <Filter />
             <ContactList />

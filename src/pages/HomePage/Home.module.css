@@ -1,0 +1,17 @@
+.divHome {
+    padding: 140px 220px;
+    background-image: url('images/telephone.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.divText {
+    padding: 8px 24px;
+    border-radius: 10px;
+    background: rgba(25, 118, 210, 0.20);
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

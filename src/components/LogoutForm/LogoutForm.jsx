@@ -1,7 +1,7 @@
 
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { logOutThunk } from "store/auth/thunksAuth";
+import { logOutThunk } from "store/auth/operationsAuth";
 
 export const LogoutForm = ({email}) => {
     const dispatch = useDispatch();

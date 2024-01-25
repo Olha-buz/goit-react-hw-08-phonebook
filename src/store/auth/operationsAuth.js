@@ -1,9 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clearAuthHeader, logIn, logOut, setAuthHeader, signUp } from "api/auth";
+import { clearAuthHeader, logIn, logOut, setAuthHeader, signUp } from "api/api";
+import axios from "axios";
 
 export const signUpThunk = createAsyncThunk('auth/signup', async (data, thunkAPI) => {
     try {
+        console.log(data);
         const response = await signUp(data);
+        console.log(response);
         setAuthHeader(response.token);
         return response;
     } catch (error) {
@@ -31,11 +34,21 @@ export const logOutThunk = createAsyncThunk('auth/logout', async (data, thunkAPI
     }
 });
 
-// export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
-//     try {
-//         return await setAuthHeader(thunkAPI.getStat().auth.token)
-//     } catch (err) {
-//         return thunkAPI.rejectWithValue(err.response.data.error)
-//     }
-// });
+export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+
+    try {
+        setAuthHeader(persistedToken);
+        const response = await axios.get('users/me');
+        console.log(response);
+        return response.data
+    } catch (err) {
+        return thunkAPI.rejectWithValue(err.response.data.error)
+    }
+});
 
