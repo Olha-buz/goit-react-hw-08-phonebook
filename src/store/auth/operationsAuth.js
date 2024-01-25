@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clearAuthHeader, logIn, logOut, setAuthHeader, signUp } from "api/api";
+import { clearAuthHeader, logIn, logOut, setAuthHeader, signUp } from "store/api";
 import axios from "axios";
 
 export const signUpThunk = createAsyncThunk('auth/signup', async (data, thunkAPI) => {

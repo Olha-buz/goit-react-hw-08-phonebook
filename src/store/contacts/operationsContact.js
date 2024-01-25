@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { setAuthHeader } from "api/api";
-import { addContact, deleteContact, fetchAllContacts } from "api/api";
+import { setAuthHeader } from "store/api";
+import { addContact, deleteContact, fetchAllContacts } from "store/api";
 
 export const fetchContactsThunk = createAsyncThunk('contacts/fetchall', async (_, thunkAPI) => {
     try {
