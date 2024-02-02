@@ -1,18 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logInThunk, logOutThunk, refreshUser, signUpThunk } from "store/api";
+import { logInThunk, logOutThunk, signUpThunk } from "store/api";
 
 
 const initialState = {
     token: '',
     user: null,
     isLoggedIn: false,
-    isRefreshing: false,
+    // isRefreshing: false,
 
 };
 
 const sliceAuth = createSlice({
     name: 'auth',
     initialState,
+    reducers: {},
     extraReducers: builder => {
         builder
 
@@ -33,17 +34,17 @@ const sliceAuth = createSlice({
                 state.user = { name: null, email: null };
                 state.isLoggedIn = false;
             })
-            .addCase(refreshUser.pending, state => {
-                state.isRefreshing = true;
-            })
-            .addCase(refreshUser.fulfilled, (state, action) => {
-                state.user = action.payload;
-                state.isLoggedIn = true;
-                state.isRefreshing = false;
-            })
-            .addCase(refreshUser.rejected, state => {
-                state.isRefreshing = false;
-            });
+            // .addCase(refreshUser.pending, state => {
+            //     state.isRefreshing = true;
+            // })
+            // .addCase(refreshUser.fulfilled, (state, action) => {
+            //     state.user = action.payload;
+            //     state.isLoggedIn = true;
+            //     state.isRefreshing = false;
+            // })
+            // .addCase(refreshUser.rejected, state => {
+            //     state.isRefreshing = false;
+            // });
 
     }
 });

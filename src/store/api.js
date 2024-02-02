@@ -37,8 +37,9 @@ export const logInThunk = createAsyncThunk('auth/login', async (credentials, thu
 
 export const logOutThunk = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     try {
-        await axios.post('/users/logout');
+        const response = await axios.post('/users/logout');
         clearAuthHeader();
+        return response.data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
     }
@@ -78,7 +79,7 @@ export const fetchContactsThunk = createAsyncThunk('contacts/fetchall', async (_
 export const addContactThunk = createAsyncThunk('contacts/addcontact', async ({ name, number }, thunkAPI) => {
     try {
         const response = await axios.post('/contacts', { name, number });
-        console.log('Add contact >>', response.data);
+        console.log('Add contact >>', response);
         return response.data;
     } catch (err) {
         return thunkAPI.rejectWithValue(err.message);
@@ -88,7 +89,7 @@ export const addContactThunk = createAsyncThunk('contacts/addcontact', async ({ 
 export const deleteContactThunk = createAsyncThunk('contacts/deletecontact', async (contactId, thunkAPI) => {
     try {
         const response = await axios.delete(`/contacts/${contactId}`);
-        console.log('Delete contact >>', response.data);
+        console.log('Delete contact >>', response);
         return response.data;
     } catch (err) {
         return thunkAPI.rejectWithValue(err.message);
