@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { selectContacts } from 'store/contacts/selectorsContacts';
-import { addContactThunk } from 'store/contacts/operationsContact';
+import { addContactThunk } from 'store/api';
+
 
 export const ContactForm = () => {
     const [name, setName] = useState('');
@@ -37,7 +38,7 @@ export const ContactForm = () => {
 
     return (
         <form className={css.formcontact} onSubmit={handleSubmit} autoComplete='off'>
-            <label >
+            <label>
                 <div >
                     Name
                 </div>

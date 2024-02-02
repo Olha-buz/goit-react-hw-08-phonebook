@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { signUpThunk } from "store/auth/operationsAuth";
+
 import css from './SignupForm.module.css';
+import { signUpThunk } from "store/api";
 
 export const SignupForm = () => {
     const dispatch = useDispatch();

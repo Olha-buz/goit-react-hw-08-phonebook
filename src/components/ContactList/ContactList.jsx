@@ -2,7 +2,8 @@ import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { selectContacts, selectFilter } from 'store/contacts/selectorsContacts';
-import { deleteContactThunk } from 'store/contacts/operationsContact';
+import { deleteContactThunk } from 'store/api';
+
 
 
 const getVisibleContacts = (contacts, filter) => {

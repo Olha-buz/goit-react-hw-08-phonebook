@@ -4,9 +4,10 @@ import { Filter } from "components/Filter/Filter";
 import { Loader } from "components/Loader/Loader";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
+import { fetchContactsThunk } from "store/api";
 import { selectToken } from "store/auth/selectorsAuth";
 import { selectError, selectLoading } from "store/contacts/selectorsContacts";
-import { fetchContactsThunk } from "store/contacts/operationsContact";
+
 
 export const Contacts = () => {
     const dispatch = useDispatch();

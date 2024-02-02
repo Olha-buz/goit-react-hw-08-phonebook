@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
-import { logInThunk } from "store/auth/operationsAuth";
+
 import { selectError } from "store/contacts/selectorsContacts";
 import css from './LoginForm.module.css';
+import { logInThunk } from "store/api";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();

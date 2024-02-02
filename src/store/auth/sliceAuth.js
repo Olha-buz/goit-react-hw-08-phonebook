@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logInThunk, logOutThunk, refreshUser, signUpThunk } from "./operationsAuth";
+import { logInThunk, logOutThunk, refreshUser, signUpThunk } from "store/api";
 
 
 const initialState = {
-    token: null,
-    user: {name: null, email:null},
+    token: '',
+    user: null,
     isLoggedIn: false,
     isRefreshing: false,
 
