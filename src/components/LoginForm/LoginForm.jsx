@@ -25,7 +25,7 @@ export const LoginForm = () => {
     return (
         <div className={css.divLogin}>
             <h2 className={css.loginTitle}>Log In</h2>
-            <form className={ css.loginForm} onSubmit={handleSubmit} autoComplete='off'>
+            <form className={ css.loginForm} onSubmit={handleSubmit}>
                 <label className={css.loginLabel}>
                     <p className={css.loginP}> Email</p>
                     <input
