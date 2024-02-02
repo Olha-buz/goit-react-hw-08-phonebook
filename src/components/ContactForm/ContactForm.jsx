@@ -10,7 +10,7 @@ import { addContactThunk } from 'store/api';
 
 export const ContactForm = () => {
     const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
+    const [number, setNumber] = useState('');
 
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
@@ -21,18 +21,18 @@ export const ContactForm = () => {
             Notiflix.Notify.info(`${name} is already in contacts`);
             return;
         } else {
-            dispatch(addContactThunk({name, phone}));
+            dispatch(addContactThunk({name, number}));
         }
         setName('');
-        setPhone('');
+        setNumber('');
     };
 
     const handleChange = evt => {
         const { name, value } = evt.target;
         if (name === 'name') {
             setName(value)
-        } else if (name === 'phone') {
-            setPhone(value)
+        } else if (name === 'number') {
+            setNumber(value)
         }
     };
 
@@ -58,8 +58,8 @@ export const ContactForm = () => {
                 <input
                     className={css.inputform}
                     type="tel"
-                    name="phone"
-                    value={phone}
+                    name="number"
+                    value={number}
                     pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
                     title="The phone number in the form 000-00-00."
                     required

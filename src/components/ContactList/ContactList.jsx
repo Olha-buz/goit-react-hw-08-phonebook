@@ -32,7 +32,7 @@ export const ContactList = () => {
             {visibleContacts.map(contact => {
                 return (
                     <li className={css.itemcontact} key={contact.id} >
-                        <p className={css.pItem}>{contact.name}: {contact.phone}</p>
+                        <p className={css.pItem}>{contact.name}: {contact.number}</p>
                         <button
                             className={css.buttonremove}
                             type="button"
