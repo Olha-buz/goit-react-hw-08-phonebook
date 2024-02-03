@@ -12,7 +12,7 @@ export const LoginForm = () => {
     const error = useSelector(selectError);
     
     const handleSubmit = evt => {
-        evt.prevenrDefault();
+        evt.preventDefault();
         const form = evt.currentTarget;
         dispatch(logInThunk({
             email: form.elements.email.value,
