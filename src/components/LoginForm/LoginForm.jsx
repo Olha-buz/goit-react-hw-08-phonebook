@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
-
-import { selectError } from "store/contacts/selectorsContacts";
 import css from './LoginForm.module.css';
 import { logInThunk } from "store/api";
+import { selectAuthError } from "store/auth/selectorsAuth";
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const error = useSelector(selectError);
+    const error = useSelector(selectAuthError);
     
     const handleSubmit = evt => {
         evt.preventDefault();
@@ -44,6 +43,8 @@ export const LoginForm = () => {
                         placeholder='Enter password'
                     />
                 </label>
+                {error === 'Request failed with status code 400' &&
+                    <p className={css.pErrorLogin}>Something wrong! Check your email/password.</p>}
                 <button className={css.loginButton} type='submit'>
                     Log In
                 </button>
